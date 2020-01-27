@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LeChuck&#39;s Notes</title>
+    <link>http://libcrypto.so/</link>
+    <description>Recent content on LeChuck&#39;s Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 27 Dec 2019 08:10:08 +0400</lastBuildDate>
+    
+	<atom:link href="http://libcrypto.so/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Workflow</title>
+      <link>http://libcrypto.so/posts/workflow/</link>
+      <pubDate>Fri, 27 Dec 2019 08:10:08 +0400</pubDate>
+      
+      <guid>http://libcrypto.so/posts/workflow/</guid>
+      <description>Intro Been interested for a while now in bug bounty programs. But going through the immense amount of data available online made me realize that these data must be put in order first. My trials so far were pouring more hay onto the haystack. I can&amp;rsquo;t find any needles.
+And while there are some publicly available work flows from some amazing people. Like capt-meelo, and NahamSec. I thought I need to build my own.</description>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>http://libcrypto.so/about/</link>
+      <pubDate>Thu, 26 Dec 2019 10:35:08 +0400</pubDate>
+      
+      <guid>http://libcrypto.so/about/</guid>
+      <description>Am a *nix guy with interests in infosec and ethical hacking. In this blog I&amp;rsquo;ll be sharing my experiences, trials to learn, and failures as well. To help others and myself.
+&amp;ldquo;We’re all stories, in the end. Just make it a good one” - Dr Who.</description>
+    </item>
+    
+  </channel>
+</rss>

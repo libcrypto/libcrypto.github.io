@@ -1,0 +1,156 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Posts on LeChuck&#39;s Notes</title>
+        <link>http://libcrypto.so/posts/</link>
+        <description>Recent content in Posts on LeChuck&#39;s Notes</description>
+        <generator>Hugo -- gohugo.io</generator>
+        <language>en-us</language>
+        <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+        <lastBuildDate>Fri, 27 Dec 2019 08:10:08 +0400</lastBuildDate>
+        <atom:link href="http://libcrypto.so/posts/index.xml" rel="self" type="application/rss+xml" />
+        
+        <item>
+            <title>Workflow</title>
+            <link>http://libcrypto.so/posts/workflow/</link>
+            <pubDate>Fri, 27 Dec 2019 08:10:08 +0400</pubDate>
+            
+            <guid>http://libcrypto.so/posts/workflow/</guid>
+            <description>Intro Been interested for a while now in bug bounty programs. But going through the immense amount of data available online made me realize that these data must be put in order first. My trials so far were pouring more hay onto the haystack. I can&amp;rsquo;t find any needles.
+And while there are some publicly available work flows from some amazing people. Like capt-meelo, and NahamSec. I thought I need to build my own.</description>
+            <content type="html"><![CDATA[
+
+<h4 id="intro">Intro</h4>
+
+<p>Been interested for a while now in bug bounty programs. But going through the immense amount of data available online made me realize that these data must be put in order first. My trials so far were pouring more hay onto the haystack. I can&rsquo;t find any needles.</p>
+
+<p>And while there are some publicly available work flows from some amazing people. Like <a href="https://github.com/capt-meelo/LazyRecon/blob/master/workflow.png">capt-meelo</a>, and <a href="https://docs.google.com/presentation/d/1xgvEScGZ_ukNY0rmfKz1JN0sn-CgZY_rTp2B_SZvijk/edit#slide=id.g4052c4692d_0_264">NahamSec</a>. I thought I need to build my own.</p>
+
+<p>Yeah, I can hear some thinking <em>&ldquo;Not again, another work flow and another recon automation tool&rdquo;</em>
+,and, I immediately remembered the infamous XKCD standards post <p align="center">
+<a href="https://imgs.xkcd.com/comics/standards.png"><img src="https://imgs.xkcd.com/comics/standards.png" style="width:30%;"></a>
+</p></p>
+
+<p>But, I want to go through more than this actually. I don&rsquo;t want to hit you in the face with a tool or a diagram. <strong>I want to walk you and me through the thought process.</strong> I want to study existing tools and try to make something better. Sounds good?</p>
+
+<p>Moreover, Most of the workflows stop at the recon phase. I will try to go beyond that.</p>
+
+<p>If you&rsquo;re still reading, I assume you&rsquo;re interested. Let&rsquo;s dig in.</p>
+
+<hr />
+
+<h4 id="characteristics-of-a-workflow">Characteristics of a workflow</h4>
+
+<p>This workflow should help us in gathering information and organizing the data presented. We don&rsquo;t want to get lost - especially with these large targets - or overwhelmed by the amount of data. A workflow usually is backed up by some kind of tools/scripts for automation and efficiency.</p>
+
+<p>On a high level, a work flow should be:</p>
+
+<ul>
+<li>Extensive, to capture all types of info that can be amassed ;)</li>
+<li>Modular, to be able to plug in new tools, or process data in a new, different way that emerged</li>
+<li>Easy, so the majority can contribute. Not everyone knows go or python</li>
+<li>Time efficient, to run things in parallel whenever possible</li>
+<li>Resumable, in case of interruption</li>
+</ul>
+
+<p>I think these are good starting points. Thinking the tooling or scripts through, I the below sounds the best approach IMHO:</p>
+
+<ul>
+<li>Chaining bash aliases or functions. They have to be well commented, with predictable outputted file names</li>
+<li>Maybe usage of <code>parallel</code> command when possible for efficiency</li>
+<li>Outputs in parsable <code>.txt</code> format, whenever possible</li>
+</ul>
+
+<hr />
+
+<h4 id="goal-of-a-workflow">Goal of a workflow</h4>
+
+<p align="center">
+  <img style="width:50%;" src="https://i.kym-cdn.com/photos/images/original/001/142/233/897.gif"">
+</p>
+
+<p>I went through many public posts and ended up with a feeling similar to the image above. Now what?</p>
+
+<p>An extensive recon process - which is indeed needed - that gives you a gigantic haystack. I was left with a feeling I should be looking for an exposed tomcat admin panel, or something similar. Of course, I was wrong.</p>
+
+<p>Don&rsquo;t get me wrong, the writeups are awesome, almost all of them. But when combined, I was left with that attitude. It might be just me. So I decided to clear up the goals a little bit.</p>
+
+<p>What is an expected goal of a workflow?</p>
+
+<p>First, what are the steps of a workflow (IMHO)?</p>
+
+<ul>
+<li><strong>Recon</strong>: As in identifying subdomains, IPs, ports, technologies. Basically, building up the attack surface. The methods and tools around this step seems constantly evolving.</li>
+<li><strong>Content discovery</strong>: As in brute forcing dirs, parameters, end points and APIs.</li>
+<li><strong>Visual inspection</strong>: Might help in getting a feel of technologies used. In some cases you might get lucky just with this step.</li>
+<li><strong>Hone in</strong>: Here we need to start interacting on interesting findings from above steps.
+
+<ul>
+<li><strong>Manual interaction</strong>: We still need to look into details ourselves, get a feel of the code in hand. Regardless of how far automation goes.</li>
+<li><strong>Client controls</strong>: What controls are there on user input on the client side?</li>
+<li><strong>Access controls</strong>: Checking for IDORs and similar issues</li>
+<li><strong>Session management</strong>: For example, are cookies predictable?</li>
+<li><strong>User input parsing</strong>: XSS, SQLi, LFI, RFI and all these fun stuff</li>
+<li><strong>Vuln scanning</strong>: Any publicly available vulnerabilities not fixed on the target&rsquo;s infrastructure?</li>
+</ul></li>
+</ul>
+
+<p>How should we decide where to focus our investigation or hone in?
+Consider answering the below questions to decide</p>
+
+<ul>
+<li>Does the code interact with the server&rsquo;s filesystem, (file uploads, LFI)?</li>
+<li>Could the code be pulling data from a backend system? (stored XSS, SQLi)</li>
+<li>Could this same code/functionality have a privileged or admin version? (IDORs, privesc)
+<br /></li>
+</ul>
+
+<p>With all that. We go back to our question &ldquo;What is an expected goal of a workflow?&rdquo;</p>
+
+<p>A workflow is your routine, your thought process or mind map, a reference to go back to if you get lost. Backed up by tools for automation and efficiency. Otherwise, it is so easy to get lost.</p>
+
+<p>Now I will go try to design my workflow. Will update this post when am done.</p>
+
+<hr />
+
+<p>After some research and lots of distractions (work +life) I came up with this workflow
+<p align="center">
+  <a href="/images/bugbounty_wokflow.png">
+    <img border="0" alt="workflow" src="/images/bugbounty_wokflow.png" width="80%" height="80%">
+  </a>
+</p></p>
+
+<p>This workflow is an outcome of studying the awesome work of <a href="https://0xpatrik.com/subdomain-enumeration-2019/">0xpatrik</a>,<a href="https://github.com/phspade/Automated-Scanner">phspade</a> and diving into the amazing script (Chomp-Scan) by <a href="https://github.com/SolomonSklash/chomp-scan">SolomonSklash</a>.</p>
+
+<p>You&rsquo;ll notice the following in the shared workflow:</p>
+
+<ul>
+<li>Parallelization of independent actions. That, of course, might increase CPU/memory usage in some situations.</li>
+<li>I tried to illustrate what each box is actually trying to do. Instead of a diagram full of tools names.</li>
+<li>There are still some missing poking points, like POST/GET parameters for example.<br /></li>
+</ul>
+
+<p>Now, to explain some of the design decisions:</p>
+
+<ul>
+<li>The DNS routine at the beginning might seem awkward, but in my testing, it provided balance between efficiency and thoroughness.
+
+<ul>
+<li>The usage of <code>massdns</code> for a second time after <code>goaltdns</code> to ensure the permutations of subdomains are actualy resolvable. Kudos to 0xpatrik on that.</li>
+<li>In my testing I came across occasions where private/internal IPs were reported back. Those IPs need to be filtered out of the results or at least saved in a separate output file.</li>
+</ul></li>
+<li><code>masscan</code> is the initial port scanner used as it is way faster than <code>nmap</code>.
+
+<ul>
+<li><code>nmap</code> will be used on the ports discovered by <code>masscan</code> to check on protocols, type of service running, and discover versions.</li>
+</ul></li>
+</ul>
+
+<p>As I mentioned, I find the work put into <a href="https://github.com/SolomonSklash/chomp-scan">chomp-scan</a> is impressive. So, I think I might use it as a starting point. Yet, I think it needs some work. And, I think I might be able contribute that to the project, open source FTW.</p>
+
+<p>On that note, I will end this blog post. And, will start working on modifications of <code>chomp-scan</code>.
+If you have any comments or additions to the suggest workflow I will assume you know how to contact me ;).</p>
+]]></content>
+        </item>
+        
+    </channel>
+</rss>

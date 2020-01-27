@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on LeChuck&#39;s Notes</title>
+    <link>http://libcrypto.so/tags/</link>
+    <description>Recent content in Tags on LeChuck&#39;s Notes</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Fri, 27 Dec 2019 08:10:08 +0400</lastBuildDate>
+    
+	<atom:link href="http://libcrypto.so/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>bugbounty</title>
+      <link>http://libcrypto.so/tags/bugbounty/</link>
+      <pubDate>Fri, 27 Dec 2019 08:10:08 +0400</pubDate>
+      
+      <guid>http://libcrypto.so/tags/bugbounty/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>pentest</title>
+      <link>http://libcrypto.so/tags/pentest/</link>
+      <pubDate>Fri, 27 Dec 2019 08:10:08 +0400</pubDate>
+      
+      <guid>http://libcrypto.so/tags/pentest/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>about</title>
+      <link>http://libcrypto.so/tags/about/</link>
+      <pubDate>Thu, 26 Dec 2019 10:35:08 +0400</pubDate>
+      
+      <guid>http://libcrypto.so/tags/about/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
